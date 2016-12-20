@@ -22,7 +22,8 @@ app.use(express.static(__dirname + '/public'));
 app.use('/api', appRoutes);
 //http://localhost:8080/users =>
 //http://localhost:8080/api/users
-mongoose.connect('mongodb://localhost:27017/tutorial', function(err) {
+// mongoose.connect('mongodb://localhost:27017/tutorial', function(err) {
+mongoose.connect(process.env.MONGOLAB_URI, function(err) {
   if (err) {
     console.log('Not Connected to the db: '+ err);
   } else {
